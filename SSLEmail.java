@@ -52,12 +52,18 @@ public class SSLEmail {
         System.out.println("Session created");
         EmailUtil.sendEmail(session, toEmail, "Authenticator", b);
         System.out.println();
-        System.out.println("Введите код");
-        int numb1 = in.nextInt();
-        if (numb1 == z) {
-            Session session2 = Session.getDefaultInstance(props, auth);
-            System.out.println("Session created");
-            EmailUtil.sendEmail(session, toEmail, "Authenticator", "Rgistration is confirmed");
+        while (true){
+            System.out.println("Введите код");
+            int numb1 = in.nextInt();
+            if (numb1 == z) {
+                Session session2 = Session.getDefaultInstance(props, auth);
+                System.out.println("Session created");
+                EmailUtil.sendEmail(session, toEmail, "Authenticator", "Rgistration is confirmed");
+                break;
+        }
+            else{
+                System.out.println("Неверный код");
+            }
         }
     }
 }
